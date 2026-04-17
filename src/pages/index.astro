@@ -1,0 +1,395 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// -----------------------------------------------------------------------------
+// ROSTER DATA — source of truth is the sibling tokenwright/docs/roster.md.
+// Seat ordering matches the ROSTER table in that document. The canonical
+// question on each card is either lifted verbatim from roster.md or is a
+// faithful distillation of the seat's stated canonical question.
+// -----------------------------------------------------------------------------
+const roster = [
+  {
+    id: 'SEAT.01',
+    name: 'BEZOS',
+    role: 'Co-CEO / COO',
+    question: 'Does this delight the customer?',
+  },
+  {
+    id: 'SEAT.02',
+    name: 'MUSK',
+    role: 'Co-CEO / Chief Engineering Officer',
+    question: 'What does physics permit?',
+  },
+  {
+    id: 'SEAT.03',
+    name: 'JOBS',
+    role: 'Chief Product Officer',
+    question: 'What should we not do?',
+  },
+  {
+    id: 'SEAT.04',
+    name: 'KARPATHY',
+    role: 'Co-Chief AI Officer',
+    question: 'What is the simplest thing that teaches me the most?',
+  },
+  {
+    id: 'SEAT.05',
+    name: 'SUTSKEVER',
+    role: 'Co-Chief AI Officer',
+    question: 'What does the loss surface imply?',
+  },
+  {
+    id: 'SEAT.06',
+    name: 'DALIO',
+    role: 'Co-Chief Investment Officer',
+    question: 'What are the principles?',
+  },
+  {
+    id: 'SEAT.07',
+    name: 'ACKMAN',
+    role: 'Co-Chief Investment Officer',
+    question: 'Where is the mispricing?',
+  },
+  {
+    id: 'SEAT.08',
+    name: 'TESLA',
+    role: 'Co-Chief Research & Marketing Officer',
+    question: 'What if we invented it from scratch?',
+  },
+  {
+    id: 'SEAT.09',
+    name: 'EDISON',
+    role: 'Co-Chief Research & Marketing Officer',
+    question: 'What hundred variations have we not yet tried?',
+  },
+  {
+    id: 'SEAT.10',
+    name: 'OGILVY',
+    role: 'Co-Chief Research & Marketing Officer',
+    question: 'What would make someone remember this tomorrow?',
+  },
+];
+---
+<BaseLayout title="Tokenwright — a factory for personal DAOs">
+
+  <!-- ============================================================
+       00. MASTHEAD
+       ============================================================ -->
+  <header class="masthead">
+    <div class="topbar">
+      <span class="brand mono">tokenwright.ai</span>
+      <nav>
+        <a href="#02-roster">roster</a>
+        <span class="sep">·</span>
+        <a href="https://connoratkins.ai/blog/the-token-economy" rel="noopener">thesis</a>
+        <span class="sep">·</span>
+        <a href="#06-contact">contact</a>
+      </nav>
+    </div>
+
+    <div class="title-block">
+      <div>
+        <h1 class="project-title">Tokenwright</h1>
+        <p class="subtitle">
+          <span class="accent-label">// spec:</span> a factory for personal DAOs.
+        </p>
+      </div>
+      <div class="revision-stamp">
+        <span class="label">REVISION</span>
+        <span class="value">DRAFT.00.01 · 2026-04-17</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       01. THESIS
+       ============================================================ -->
+  <section class="section" id="01-thesis">
+    <div class="section-heading">
+      <div class="section-number">01 — THESIS</div>
+      <h2 class="section-title">The unit of the new economy is the agent-staffed organisation</h2>
+    </div>
+
+    <div class="content-row">
+      <div class="content-body">
+        <p>
+          Software-as-a-service is collapsing into personalisation-as-a-service, and
+          personalisation-as-a-service is already being overtaken by a larger unit:
+          the agent-staffed organisation. A language model is a tokens-in, tokens-out
+          function. A harness around one model is a personal agent. A harness over a
+          coordinated set of harnesses, each occupying a role that historically
+          belonged to a named human operator, is a company. Not a chatbot. Not a
+          workflow. A company — the same kind of thing that ships products and holds
+          a position in the world — rendered as files instead of headcount.
+        </p>
+        <p>
+          Tokenwright builds those organisations. It is a meta-company: its output is
+          other companies. Every executive seat in a traditional firm is a pattern,
+          built by the few people who occupied it best. The Bezos seat reads its
+          inbox the way the 1997 shareholder letter says to read it. The Jobs seat
+          asks <em>what should we not do?</em> before it asks anything else. The
+          Karpathy seat keeps a teaching log because that is how it learns. The
+          personas are documented in primary material. The harness reproduces the
+          operating discipline, not the surface affect.
+        </p>
+        <p>
+          The first two test runs are the founders' own PhDs being taken to
+          spinout. If the process cannot take research Tokenwright has intimate
+          knowledge of to a company, it does not ship. If it can, there are companies
+          to show for it — not a demo.
+        </p>
+      </div>
+
+      <aside class="content-margin">
+        <div class="annotation">
+          <span class="prefix">// ref:</span> the published thesis — <a href="https://connoratkins.ai/blog/the-token-economy" rel="noopener">The Token Economy</a> (2026-04-17). Argues the token-engineering frame; this site argues the organisation-engineering one.
+        </div>
+        <div class="annotation">
+          <span class="prefix">// prior art:</span> OpenClaw — <a href="https://github.com/openclaw/openclaw" rel="noopener">openclaw/openclaw</a>. The file-based personal-agent harness that proved the pattern at the level of a single operator.
+        </div>
+        <div class="annotation">
+          <span class="prefix">// precedent:</span> the OS became the unit once hardware commoditised. The DAO becomes the unit once the agent commoditises.
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02. THE ROSTER
+       ============================================================ -->
+  <section class="section" id="02-roster">
+    <div class="section-heading">
+      <div class="section-number">02 — THE ROSTER</div>
+      <h2 class="section-title">Ten seats, ten operators, one configuration</h2>
+    </div>
+
+    <div class="content-row">
+      <div class="content-full">
+        <p style="max-width: 68ch;">
+          The cast is the anchor. Each seat inherits an operating discipline drawn
+          from primary material: shareholder letters, engineering interviews, product
+          keynotes, research papers, investment decks, advertising textbooks. The
+          seats are not impressions. They are templates.
+        </p>
+
+        <div class="roster">
+          {roster.map((seat) => (
+            <article class="seat">
+              <div class="seat-id mono">{seat.id}</div>
+              <div class="seat-name">{seat.name}</div>
+              <div class="seat-role">{seat.role}</div>
+              <div class="seat-question">&ldquo;{seat.question}&rdquo;</div>
+            </article>
+          ))}
+        </div>
+
+        <div class="caption">
+          <span class="caption-key">Fig. 01</span> — company roster, configuration A (2026-04-17)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03. HOW A DAO IS SPECIFIED
+       ============================================================ -->
+  <section class="section" id="03-specification">
+    <div class="section-heading">
+      <div class="section-number">03 — SPECIFICATION</div>
+      <h2 class="section-title">How a DAO is specified</h2>
+    </div>
+
+    <div class="content-row">
+      <div class="content-body">
+        <p>
+          Every seat is a harness: a model plus a set of files that give it identity,
+          stance, context, tools, and memory. The company is a harness over those
+          harnesses — the same artefact, applied one layer up. A new collaborator can
+          read the company by reading the files. A change in how the company behaves
+          is a pull request, not a parameter sweep.
+        </p>
+        <p>
+          The principal — the founder — sits at the centre. Context flows inward from
+          sources the principal trusts. Work products flow outward from seats the
+          principal convenes. Coordination between seats is explicit, written,
+          auditable. Nothing in the system is opaque except the weights themselves,
+          and the weights are replaceable.
+        </p>
+
+        <div class="schematic-wrap">
+          <svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic of a DAO: user at centre, seats on a ring, context flowing in, work products flowing out.">
+            <!-- outer ring of seats -->
+            <circle class="line" cx="320" cy="170" r="130" stroke-dasharray="2 4"/>
+
+            <!-- centre node: USER / PRINCIPAL -->
+            <rect class="center-node" x="280" y="150" width="80" height="40"/>
+            <text class="node-label" x="320" y="174" text-anchor="middle">PRINCIPAL</text>
+
+            <!-- seat nodes around the ring (8 illustrative pins) -->
+            <g>
+              <circle class="node" cx="320" cy="40" r="10"/>
+              <text x="320" y="26" text-anchor="middle">CEO-AXIS</text>
+
+              <circle class="node" cx="412" cy="78" r="10"/>
+              <text x="420" y="68" text-anchor="start">CPO</text>
+
+              <circle class="node" cx="450" cy="170" r="10"/>
+              <text x="466" y="174" text-anchor="start">CAIO</text>
+
+              <circle class="node" cx="412" cy="262" r="10"/>
+              <text x="420" y="278" text-anchor="start">CIO</text>
+
+              <circle class="node" cx="320" cy="300" r="10"/>
+              <text x="320" y="320" text-anchor="middle">CRMO</text>
+
+              <circle class="node" cx="228" cy="262" r="10"/>
+              <text x="220" y="278" text-anchor="end">COO</text>
+
+              <circle class="node" cx="190" cy="170" r="10"/>
+              <text x="174" y="174" text-anchor="end">CEO</text>
+
+              <circle class="node" cx="228" cy="78" r="10"/>
+              <text x="220" y="68" text-anchor="end">CENG</text>
+            </g>
+
+            <!-- arrows: context in (left), work products out (right) -->
+            <g>
+              <line class="line" x1="40" y1="170" x2="176" y2="170" marker-end="url(#arrowhead)"/>
+              <text x="40" y="158" text-anchor="start">CONTEXT IN</text>
+
+              <line class="line" x1="464" y1="170" x2="600" y2="170" marker-end="url(#arrowhead)"/>
+              <text x="600" y="158" text-anchor="end">WORK PRODUCTS OUT</text>
+            </g>
+
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+                <path d="M0,0 L10,4 L0,8" fill="none" stroke="currentColor" stroke-width="1"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="caption">
+          <span class="caption-key">Fig. 02</span> — DAO schematic, user-centred
+        </div>
+      </div>
+
+      <aside class="content-margin">
+        <div class="annotation">
+          <span class="prefix">// pattern:</span> harness-of-harnesses. Each seat has its own <span class="mono">IDENTITY</span>, <span class="mono">SOUL</span>, <span class="mono">MEMORY</span>; the company has its own <span class="mono">COMPANY</span> and <span class="mono">ROSTER</span>.
+        </div>
+        <div class="annotation">
+          <span class="prefix">// rule:</span> anything that could plausibly be a Markdown file is a Markdown file. Code is for moving tokens between files and into the model.
+        </div>
+        <div class="annotation">
+          <span class="prefix">// constraint:</span> outputs are shared across seats; reasoning is private. Closer to how real executives operate.
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       04. PROVENANCE
+       ============================================================ -->
+  <section class="section" id="04-provenance">
+    <div class="section-heading">
+      <div class="section-number">04 — PROVENANCE</div>
+      <h2 class="section-title">Where this comes from</h2>
+    </div>
+
+    <div class="content-row">
+      <div class="content-body">
+        <p>
+          Three pieces of prior work made this tractable, and all three are named
+          honestly. Peter Steinberger's OpenClaw supplied the personal-agent pattern —
+          a folder of Markdown files and a model that reads them on startup — which
+          is the primitive Tokenwright scales up one layer. The token-economy essay,
+          published 2026-04-17, is the public articulation of the thesis this site
+          extends. A recent academic submission, built in forty-eight hours by a
+          purpose-built writing harness and currently under double-blind review, is
+          the existence proof that the pattern produces real outputs at pace.
+        </p>
+        <p>
+          None of this is a surprise in hindsight. All of the components existed. The
+          specific move Tokenwright makes is to stop treating the harness as a
+          property of a single agent and start treating it as the property of an
+          organisation.
+        </p>
+      </div>
+
+      <aside class="content-margin">
+        <div class="annotation">
+          <span class="prefix">// source:</span> OpenClaw — <a href="https://github.com/openclaw/openclaw" rel="noopener">openclaw/openclaw</a>.
+        </div>
+        <div class="annotation">
+          <span class="prefix">// source:</span> <a href="https://connoratkins.ai/blog/the-token-economy" rel="noopener">connoratkins.ai/blog/the-token-economy</a>.
+        </div>
+        <div class="annotation">
+          <span class="prefix">// submission:</span> under double-blind review; details embargoed. Pattern, not paper, is the point.
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05. STATUS
+       ============================================================ -->
+  <section class="section" id="05-status">
+    <div class="section-heading">
+      <div class="section-number">05 — STATUS</div>
+      <h2 class="section-title">Where this is, stated plainly</h2>
+    </div>
+
+    <div class="content-row">
+      <div class="content-body">
+        <p>
+          Connor Atkins is building Tokenwright. A co-founder is identified and
+          discussions are live; the public name is withheld pending their consent.
+          The project is based in Swansea, Wales. What exists in the open today is
+          this specification, the personal site at <a href="https://connoratkins.ai" rel="noopener">connoratkins.ai</a>,
+          and two design repositories under active revision. No traction is claimed
+          because none is the point yet. The artefact is the specification. Honesty
+          about scope is itself the institutional signal.
+        </p>
+      </div>
+
+      <aside class="content-margin">
+        <div class="annotation">
+          <span class="prefix">// location:</span> Swansea, Wales.
+        </div>
+        <div class="annotation">
+          <span class="prefix">// stage:</span> specification; phase-1 agent under construction.
+        </div>
+        <div class="annotation">
+          <span class="prefix">// dated:</span> 2026-04-17.
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       06. CONTACT
+       ============================================================ -->
+  <section class="section" id="06-contact">
+    <div class="section-heading">
+      <div class="section-number">06 — CONTACT</div>
+      <h2 class="section-title">For institutional correspondence</h2>
+    </div>
+
+    <div class="content-row">
+      <div class="content-body">
+        <div class="contact-block">
+          <div><span class="k">name</span> Connor Atkins</div>
+          <div><span class="k">email</span> <a href="mailto:connoratkins5@gmail.com">connoratkins5@gmail.com</a></div>
+          <div><span class="k">github</span> <a href="https://github.com/connor113" rel="noopener">github.com/connor113</a></div>
+          <div><span class="k">x</span> <a href="https://twitter.com/ConnorAtkins11" rel="noopener">@ConnorAtkins11</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    tokenwright ltd (in formation). this page is a specification, not a product. revision DRAFT.00.01.
+  </footer>
+
+</BaseLayout>
